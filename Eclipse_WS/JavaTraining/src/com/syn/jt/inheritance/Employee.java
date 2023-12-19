@@ -24,8 +24,6 @@ public class Employee extends Person implements WelcomeMessage, printBirthYear
 		return details;
 	}
 	public static void main(String[] args) {
-		
-		
 		Employee emp1 = new Employee();
 		emp1.name = "Aravinda";
 		emp1.height = 5.8;
