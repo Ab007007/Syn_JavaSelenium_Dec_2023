@@ -11,7 +11,7 @@ public class FormFillDemo {
 	public static void main(String[] args) throws InterruptedException 	{
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 	//	WebDriver driver = new ChromeDriver();
-	//	WebDriverManager.chromedriver().browserVersion("120.0.6099.110").setup();
+	//	WebDriverManager.chromedriver().browserVersion("120.0.6099.109").setup();
 		WebDriver driver = new ChromeDriver();
 		
 		driver.get("http://formy-project.herokuapp.com/form");
