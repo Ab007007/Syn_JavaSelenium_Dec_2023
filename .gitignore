@@ -3,5 +3,10 @@ Eclipse_WS/JavaTraining/.settings
 Eclipse_WS/JavaTraining/bin
 Eclipse_WS/JavaTraining/.classpath
 Eclipse_WS/JavaTraining/.project
+Eclipse_WS/seleniumAutomation/test-output
+Eclipse_WS/seleniumAutomation/bin
+Eclipse_WS/seleniumAutomation/.settings
+Eclipse_WS/seleniumAutomation/.classpath
+Eclipse_WS/seleniumAutomation/.project
 *.png
 *.xlsx
