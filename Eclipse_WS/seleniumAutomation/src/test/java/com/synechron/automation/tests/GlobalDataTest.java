@@ -20,30 +20,39 @@ public class GlobalDataTest {
 		
 		driver.get(GlobalDataRreader.getPropertyValue("form_app_url"));
 		
-		driver.findElement(By.id("first-name")).sendKeys("Aravinda");
-		driver.findElement(By.id("last-name")).sendKeys("H");
-		driver.findElement(By.id("job-title")).sendKeys("Trainer");
+		int rowCount = ExcelUtility.getRowCount("Sheet1");
+		for (int i = 1; i < rowCount ; i++) 
+		{
+			String fn = ExcelUtility.getMyCellValue("Sheet1", i, 0);
+			String ln = ExcelUtility.getMyCellValue("Sheet1", i, 1);
+			String jt = ExcelUtility.getMyCellValue("Sheet1", i, 2);
+			
+			
+			driver.findElement(By.id("first-name")).sendKeys(fn);
+			driver.findElement(By.id("last-name")).sendKeys(ln);
+			driver.findElement(By.id("job-title")).sendKeys(jt);
+			
+			driver.findElement(By.id("radio-button-3")).click();
+			driver.findElement(By.id("checkbox-1")).click();
+			
+			Select yearOfExp = new Select(driver.findElement(By.id("select-menu")));
+			
+			
+			yearOfExp.selectByValue("4");   //10+
+			Thread.sleep(2000);
+			
 		
-		driver.findElement(By.id("radio-button-3")).click();
-		driver.findElement(By.id("checkbox-1")).click();
+			driver.findElement(By.linkText("Submit")).click();
+			
+			Thread.sleep(2000);
+			
+			String successMessage = driver.findElement(By.xpath("//div[@role='alert']")).getText();
+			
+			System.out.println("Sussess message " + successMessage);
+			
+			driver.get(GlobalDataRreader.getPropertyValue("form_app_url"));
+			
+		}
 		
-		Select yearOfExp = new Select(driver.findElement(By.id("select-menu")));
-		
-		yearOfExp.selectByIndex(3);   //5-9
-		Thread.sleep(2000);
-		
-		yearOfExp.selectByValue("4");   //10+
-		Thread.sleep(2000);
-		
-		yearOfExp.selectByVisibleText("0-1");  //10+
-		Thread.sleep(2000);
-		
-		driver.findElement(By.linkText("Submit")).click();
-		
-		Thread.sleep(2000);
-		
-		String successMessage = driver.findElement(By.xpath("//div[@role='alert']")).getText();
-		
-		System.out.println("Sussess message " + successMessage);
 	}
 }
